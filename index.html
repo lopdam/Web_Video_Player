@@ -5,11 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Player</title>
+
+    <link rel="stylesheet" href="./styles/css/styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
 
+    <div class="videoPlayer">
+        <video src="./videos/code.mp4" controls poster="./images/code-computer.jpg" width="800px">
+        </video>
+        <div class="controls">
+            <div class="top">
 
+                <div class="volume">
+                    <i class="material-icons md-light md-24 show-volume">volume_up</i>
+                    <div>
+                        <input type="range" id="voulme-range" value="1">
+                    </div>
+                </div>
+            </div>
+            <div class="center">
+                <i class="play-pause material-icons md-96 md-light pointer">play_arrow</i>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./scripts/main.js">
+
+    </script>
+    <script>
+        let video = new Video('.videoPlayer');
+    </script>
 </body>
 
 </html>
