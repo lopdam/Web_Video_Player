@@ -14,6 +14,8 @@
 	}
 
 	.controls {
+        opacity: 0;
+        transition: all 0.2s;
 		position: absolute;
 		top: 0px;
 		left: 0px;
@@ -24,19 +26,36 @@
 		align-items: center;
 		flex: 0 1 auto;
 		flex-direction: column;
-		flex-wrap: wrap;
+        flex-wrap: wrap;
+        
+        &:hover{
+            opacity: 1;
+        }
 		.top {
 			position: absolute;
 			top: 1em;
-			width: 95%;
+			width: 94%;
 			text-align: right;
 
-			.volume {
-				height: 20px;
+			.toggle {
+				height: 25px;
 				overflow: hidden;
 				display: inline-block;
 				transition: height 0.2s;
-				.show-volume {
+				vertical-align: top;
+				i {
+					cursor: pointer;
+				}
+			}
+			.speed {
+				span {
+					display: block;
+					background-color: rgba(0, 0, 0, 0.3);
+					box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+					border-radius: 3px;
+					color: white;
+					padding: 5px 10px;
+					margin-top: 3px;
 					cursor: pointer;
 				}
 			}
@@ -67,19 +86,24 @@
 		.bottom {
 			position: absolute;
 			bottom: 1em;
-            width: 95%;
-            padding: 5px;
-            border-radius: 5px;
-            background-color:rgba(0, 0, 0, 0.3);
+			width: 95%;
+			padding: 5px;
+			border-radius: 5px;
+			background-color: rgba(0, 0, 0, 0.3);
 			.progress {
-				height: 5px;
+				display: flex;
+				position: relative;
+                height: 10px;
+                cursor: pointer;
 				border-radius: 8px;
-				background-color: white;
+                width: 100%;
+                color: white;
 				.bar {
 					height: 100%;
 					width: 0%;
 					border-radius: 8px;
 					background-color: blue;
+					z-index: 100;
 				}
 			}
 
@@ -87,10 +111,10 @@
 				color: white;
 				.pull-right {
 					float: right;
-					.full-screen{
+					.full-screen {
 						margin-top: -3px;
-                        margin-left: 0.5em;
-                        cursor: pointer;
+						margin-left: 0.5em;
+						cursor: pointer;
 					}
 				}
 			}
@@ -99,6 +123,10 @@
 }
 
 .controls .top .volume.active {
+	height: 150px;
+}
+
+.controls .top .speed.active {
 	height: 150px;
 }
 
