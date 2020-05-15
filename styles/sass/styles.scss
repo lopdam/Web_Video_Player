@@ -1,75 +1,141 @@
 .videoPlayer {
-  position: relative;
-  display: inline-block;
+	position: relative;
+	display: inline-block;
+	width: 90vw;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 
-  .controls {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex:  0 1 auto;
-    flex-direction: row;
-    flex-wrap: wrap;
-    .top{
-        position: absolute;
-        top: 1em;
-        width: 95%;
-        text-align: right;
+	@media (orientation: landscape) {
+		width: 50vw;
+	}
 
-        .volume{
-            height: 20px;
-            overflow: hidden;
-            display: inline-block;
-        }
+	.controls {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex: 0 1 auto;
+		flex-direction: column;
+		flex-wrap: wrap;
+		.top {
+			position: absolute;
+			top: 1em;
+			width: 95%;
+			text-align: right;
 
-        [type="range"]{
-            margin-top: 40px;
-            margin-right: -28px;
-            transform: rotate(270deg);
-            -webkit-appearance: none;
-            background-color: white;
-            height: 5px;
-            width: 80px;
-            box-shadow: none;
+			.volume {
+				height: 20px;
+				overflow: hidden;
+				display: inline-block;
+				transition: height 0.2s;
+				.show-volume {
+					cursor: pointer;
+				}
+			}
+
+			[type="range"] {
+				margin-top: 40px;
+				margin-right: -28px;
+				transform: rotate(270deg);
+				-webkit-appearance: none;
+				background-color: white;
+				height: 5px;
+				width: 80px;
+				box-shadow: none;
+				border-radius: 5px;
+				outline: 5px;
+				cursor: pointer;
+				&::-webkit-slider-thumb {
+					-webkit-appearance: none;
+					height: 15px;
+					width: 15px;
+					border-radius: 50%;
+					cursor: pointer;
+					background-color: blue;
+					box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+				}
+			}
+		}
+		.bottom {
+			position: absolute;
+			bottom: 1em;
+            width: 95%;
+            padding: 5px;
             border-radius: 5px;
-            outline: 5px;
-            &::-webkit-slider-thumb{
-                -webkit-appearance: none;
-                height: 15px;
-                width: 15px;
-                border-radius: 50%;
-                cursor: pointer;
-                background-color: white;
-                box-shadow: 1px 1px 1px rgba(0,0,0, 0.2);
+            background-color:rgba(0, 0, 0, 0.3);
+			.progress {
+				height: 5px;
+				border-radius: 8px;
+				background-color: white;
+				.bar {
+					height: 100%;
+					width: 0%;
+					border-radius: 8px;
+					background-color: blue;
+				}
+			}
 
-            }
-
-        }
-    }
-  }
+			.bar-controls {
+				color: white;
+				.pull-right {
+					float: right;
+					.full-screen{
+						margin-top: -3px;
+                        margin-left: 0.5em;
+                        cursor: pointer;
+					}
+				}
+			}
+		}
+	}
 }
 
-.pointer{
-    cursor: pointer;
-    opacity: 1;
+.controls .top .volume.active {
+	height: 150px;
 }
 
+.pointer {
+	cursor: pointer;
+	opacity: 1;
+}
 
 /* Rules for sizing the icon. */
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
-.material-icons.md-96 { font-size: 96px; }
+.material-icons.md-18 {
+	font-size: 18px;
+}
+.material-icons.md-24 {
+	font-size: 24px;
+}
+.material-icons.md-36 {
+	font-size: 36px;
+}
+.material-icons.md-48 {
+	font-size: 48px;
+}
+.material-icons.md-96 {
+	font-size: 96px;
+}
 
 /* Rules for using icons as black on a light background. */
-.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
-.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+.material-icons.md-dark {
+	color: rgba(0, 0, 0, 0.54);
+}
+.material-icons.md-dark.md-inactive {
+	color: rgba(0, 0, 0, 0.26);
+}
 
 /* Rules for using icons as white on a dark background. */
-.material-icons.md-light { color: rgba(255, 255, 255, 1); }
-.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+.material-icons.md-light {
+	color: rgba(255, 255, 255, 1);
+}
+.material-icons.md-light.md-inactive {
+	color: rgba(255, 255, 255, 0.3);
+}
